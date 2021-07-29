@@ -1,0 +1,214 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Player.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/Sword01.png" type="Texture" id=2]
+[ext_resource path="res://Weapon.gd" type="Script" id=3]
+[ext_resource path="res://Sprites/Gun01.png" type="Texture" id=4]
+[ext_resource path="res://Weapon 2.gd" type="Script" id=5]
+[ext_resource path="res://Sprites/Char01.png" type="Texture" id=6]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 20.3744, 55.8186 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "idle"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( -5.96046e-07, 6.36396 ), Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.2, 0.2 ), Vector2( 0.23045, 0.177393 ), Vector2( 0.2, 0.2 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "move"
+length = 0.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.2, 0.2 ), Vector2( 0.23045, 0.177393 ), Vector2( 0.2, 0.2 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( -5.96046e-07, 6.36396 ), Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "Roll"
+length = 0.3
+loop = true
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 360.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.05, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("CollisionShape2D:shape:extents")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.15, 0.2, 0.25, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 17.2647, 39.1863 ), Vector2( 40.2185, 25.235 ), Vector2( 26.0764, 43.2662 ), Vector2( 26.0764, 36.9023 ), Vector2( 33.8546, 18.871 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("CollisionShape2D:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.1, 0.15, 0.2, 0.25, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 42.0369, -17.2974 ), Vector2( 39.2085, 15.2295 ), Vector2( 14.1062, 43.8673 ), Vector2( -34.3306, 18.4115 ), Vector2( -42.4624, -13.4083 ), Vector2( -25.8454, -40.9855 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "Swing"
+length = 0.2
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 121.6, 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.03, 0.11 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true ]
+}
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 19.521, 39.5204 )
+
+[node name="Player" type="KinematicBody2D"]
+script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( -5.96046e-07, 6.36396 )
+scale = Vector2( 0.23045, 0.177393 )
+texture = ExtResource( 6 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+zoom = Vector2( 0.6, 0.6 )
+smoothing_enabled = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2( 0.487343, -0.987723 )
+shape = SubResource( 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/idle = SubResource( 2 )
+anims/move = SubResource( 3 )
+
+[node name="Weapon" type="Area2D" parent="."]
+position = Vector2( 1.11256, 0.702309 )
+script = ExtResource( 3 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Weapon"]
+anims/Roll = SubResource( 4 )
+anims/Swing = SubResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Weapon"]
+position = Vector2( 42.2673, 1.05932 )
+shape = SubResource( 6 )
+disabled = true
+
+[node name="Sprite" type="Sprite" parent="Weapon"]
+position = Vector2( -0.528839, -0.622894 )
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 2 )
+centered = false
+offset = Vector2( -37.562, -349.378 )
+flip_h = true
+
+[node name="Weapon 2" type="Area2D" parent="."]
+visible = false
+position = Vector2( 7.65579, 10.5739 )
+scale = Vector2( 0.2, 0.2 )
+script = ExtResource( 5 )
+
+[node name="Gun01" type="Sprite" parent="Weapon 2"]
+position = Vector2( -35.2053, -19.8278 )
+texture = ExtResource( 4 )
+offset = Vector2( 30.689, -63.989 )
+
+[node name="Position2D" type="Position2D" parent="Weapon 2"]
+position = Vector2( 53.5748, -187.512 )
+
+[connection signal="body_entered" from="Weapon" to="Weapon" method="_on_Weapon_body_entered"]
